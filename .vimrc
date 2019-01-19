@@ -1,26 +1,50 @@
+"Vundle plugin manager
+set nocompatible              
+filetype off                  
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
+    Plugin 'vim-airline/vim-airline'
+    Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'morhetz/gruvbox'
+call vundle#end()
+filetype plugin indent on   
+
+
+
 "Colors
 syntax enable
+
+
 
 "Spaces & Tabs
 set tabstop=4
 set softtabstop=4
 set expandtab
-filetype indent on
 set cindent
 set shiftwidth=4
 set autoindent
 
-"UI Config
+
+
+"GUI config
 set number
 set showcmd
 set lazyredraw
 set showmatch
-colorscheme default
+set background=dark
+colorscheme gruvbox 
+let g:airline_theme='gruvbox'
+let g:airline_powerline_fonts = 1
+
+
 
 "Shortcuts
 inoremap jk <esc>
 
-"Auto close {
+
+
+"Auto close brackets
 function! s:CloseBracket()
     let line = getline('.')
     if line =~# '^\s*\(struct\|class\|enum\) '
@@ -33,6 +57,8 @@ function! s:CloseBracket()
     endif
 endfunction
 inoremap <expr> {<Enter> <SID>CloseBracket()
+
+
 
 "Misc
 set noundofile
