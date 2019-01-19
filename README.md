@@ -1,2 +1,1 @@
-# my-vimrc
-My .vimrc file for personal use.
+My basic and kinda lame .vimrc file for personal use, nothing too advance.
