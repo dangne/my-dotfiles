@@ -1,1 +1,1 @@
-My basic and kinda lame .vimrc file for personal use, nothing too advance.
+My minimalistic .vimrc file for personal use.
