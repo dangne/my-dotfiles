@@ -1,1 +1,1 @@
-My minimalistic .vimrc file for personal use.
+My personal dotfiles.
