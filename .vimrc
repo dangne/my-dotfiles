@@ -7,6 +7,7 @@ call vundle#begin()
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'morhetz/gruvbox'
+    Plugin 'takac/vim-hardtime'
 call vundle#end()
 filetype plugin indent on   
 
@@ -61,4 +62,6 @@ inoremap <expr> {<Enter> <SID>CloseBracket()
 
 
 "Misc
+set number
+set relativenumber
 set noundofile
