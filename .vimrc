@@ -29,7 +29,6 @@ set autoindent
 
 
 "GUI config
-set number
 set showcmd
 set lazyredraw
 set showmatch
