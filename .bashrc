@@ -119,3 +119,6 @@ fi
 
 # self-defined aliases
 alias code='cd ~/Documents/it/CodingSpace'
+# This alias was added to replace the original rm command of linux.
+# With trash-cli package, rm will move files to trash bin instead of permanent delete -> safer
+alias rm=trash 
