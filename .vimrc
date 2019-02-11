@@ -41,6 +41,7 @@ let g:airline_powerline_fonts = 1
 
 "Shortcuts
 inoremap jk <esc>
+inoremap JK <esc>
 
 
 
