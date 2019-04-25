@@ -8,4 +8,4 @@ My personal dotfiles.
 
 * **Global .gitignore:**
 
-    ```$ git config --global core.excludesfile ~/.gitignore_global```
+    ```$ git config --global core.excludesfile ~/.gitignore```
