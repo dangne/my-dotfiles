@@ -118,7 +118,11 @@ fi
 
 
 # self-defined aliases
-alias code='cd ~/Documents/it/CodingSpace'
+alias code='cd ~/Dropbox/it/CodingSpace'
 # This alias was added to replace the original rm command of linux.
 # With trash-cli package, rm will move files to trash bin instead of permanent delete -> safer
 alias rm=trash 
+alias giang='code ; cd GiangGO'
+alias odir='nautilus'
+alias cpl='g++ -g -o run '
+alias clera='clear'
