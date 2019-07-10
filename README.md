@@ -9,4 +9,4 @@ My personal dotfiles.
     ```git config --global user.email "your-email"```
 
 * **Global .gitignore:**  
-    ```$ git config --global core.excludesfile ~/.gitignore```
+    ```git config --global core.excludesfile ~/.gitignore```
