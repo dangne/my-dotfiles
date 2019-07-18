@@ -124,12 +124,14 @@ alias code='cd ~/Dropbox/it/'
 # Replace the default 'rm' command in linux with 'rm' in trash-cli package. This will move deleted files to trash bin instead of permanent delete.
 alias rm=trash
 
-# Open 
+# Open directory at ...
 alias odir='nautilus'
 
 # Quick C++ code compilation
-alias cpl='g++ -g -o run '
+alias cpl='g++ -g -o run'
 
+# Set --no-gui option to default in Octave
+alias octave='octave --no-gui'
 # Shortcut for 'clear'
 alias cc='clear'
 alias clc='clear'
