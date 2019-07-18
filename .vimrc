@@ -6,6 +6,7 @@ call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'vim-airline/vim-airline'
     Plugin 'vim-airline/vim-airline-themes'
+    Plugin 'tpope/vim-fugitive'
     Plugin 'morhetz/gruvbox'
     Plugin 'takac/vim-hardtime'
     Plugin 'Valloric/YouCompleteMe'
