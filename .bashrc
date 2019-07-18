@@ -131,7 +131,7 @@ alias odir='nautilus'
 alias cpl='g++ -g -o run '
 
 # Shortcut for 'clear'
-alias cc'clear'
+alias cc='clear'
 alias clc='clear'
 alias cls='clear'
 alias clera='clear'
