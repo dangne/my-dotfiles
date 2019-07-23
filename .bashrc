@@ -121,6 +121,9 @@ fi
 # Set coding space directory
 alias code='cd ~/Dropbox/it/'
 
+# Competitive programming space
+alias CP='code; cd ./CP'
+
 # Replace the default 'rm' command in linux with 'rm' in trash-cli package. This will move deleted files to trash bin instead of permanent delete.
 alias rm=trash
 
@@ -132,6 +135,7 @@ alias cpl='g++ -g -o run'
 
 # Set --no-gui option to default in Octave
 alias octave='octave --no-gui'
+
 # Shortcut for 'clear'
 alias cc='clear'
 alias clc='clear'
