@@ -5,6 +5,10 @@ sudo mv .vimrc ~
 
 # Setup Vundle and Plugins
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    # Install YouCompleteMe
+    sudo apt install build-essential cmake python3-dev
+    cd ~/.vim/bundle/YouCompleteMe
+    python3 install.py
 vim +PluginInstall +qall
 
 # Patch font for powerline
