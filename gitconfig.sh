@@ -15,9 +15,9 @@ echo "### Patch font for powerline"
 sudo apt-get install -y fonts-powerline 
 
 echo "### Define global variables"
-echo "Input your Github username:"
+echo "### Input your Github username:"
 read username
-echo "Input your Github email:"
+echo "### Input your Github email:"
 read useremail
 git config --global user.name $username
 git config --global user.email $useremail

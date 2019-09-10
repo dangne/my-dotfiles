@@ -27,11 +27,11 @@ sudo apt-get install -y papirus-icon-theme
 sudo apt-get install -y gnome-tweak-tool
 sudo add-apt-repository ppa:papirus/papirus
 sudo apt-get update
-echo "Download theme Sweet-Dark to Downloads to proceed..."
+echo "### Download theme Sweet-Dark to Downloads to proceed..."
 read waiting
 tar -xf Sweet-Dark.tar.xz -C ~/.themes/
 firefox https://extensions.gnome.org
-echo "Click the link text “click here to install browser extension” and follow the pop-ups to install the browser extension"
+echo "### Click the link text “click here to install browser extension” and follow the pop-ups to install the browser extension"
 sudo apt install chrome-gnome-shell
 firefox https://extensions.gnome.org/extension/19/user-themes/
 gsettings set org.gnome.desktop.interface gtk-theme Sweet-Dark
