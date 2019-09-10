@@ -1,10 +1,10 @@
 #!/bin/bash
 
-echo "### Install Google Chrome"
+echo "### Installing Google Chrome..."
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 
-echo "### Install packages"
+echo "### Installing packages..."
 sudo apt-get install -y vim 
 sudo apt-get install -y g++
 sudo apt-get install -y python3 
@@ -14,12 +14,18 @@ sudo apt-get install -y git
 sudo apt-get install -y ibus-unikey
 sudo apt-get install -y cmake
 
-echo "### Setup unikey"
+echo "### Installing typora..."
+wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+sudo add-apt-repository 'deb https://typora.io/linux ./'
+sudo apt-get update
+sudo apt-get install typora
+
+echo "### Setting up unikey..."
 google-chrome https://vinasupport.com/huong-dan-cai-bo-go-tieng-viet-ibus-unikey-tren-ubuntu/
 sudo apt-get update
 ibus restart
 
-echo "### Setup theme"
+echo "### Setting up theme..."
 google-chrome https://www.gnome-look.org/p/1166289/
 google-chrome https://www.gnome-look.org/p/1253385/
 google-chrome http://ubuntuhandbook.org/index.php/2017/05/enable-shell-theme-in-gnome-tweak-tool-in-ubuntu/
@@ -27,7 +33,7 @@ sudo apt-get install -y papirus-icon-theme
 sudo apt-get install -y gnome-tweak-tool
 sudo add-apt-repository ppa:papirus/papirus
 sudo apt-get update
-echo "### Download theme Sweet-Dark to Downloads to proceed..."
+echo "### Downloading theme Sweet-Dark to Downloads to proceed..."
 read waiting
 tar -xf Sweet-Dark.tar.xz -C ~/.themes/
 firefox https://extensions.gnome.org
@@ -40,5 +46,5 @@ gsettings set org.gnome.desktop.wm.preferences theme Sweet-Dark
 echo "### Config git"
 source ./gitconfig.sh
 
-echo "### Apply changes"
+echo "### Applying changes"
 source ~/.bashrc
