@@ -8,7 +8,6 @@ call vundle#begin()
     Plugin 'vim-airline/vim-airline-themes'
     Plugin 'tpope/vim-fugitive'
     Plugin 'morhetz/gruvbox'
-    Plugin 'takac/vim-hardtime'
     Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on   
