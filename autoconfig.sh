@@ -55,6 +55,10 @@ git(){
     bash ./gitconfig.sh
 }
 
+bashrc(){
+    cat ./.bashrc >> ~/.bashrc
+}
+
 all(){
     google_chrome
     packages
@@ -77,6 +81,7 @@ then
     echo "      unikey              Install Unikey for Vietnamese :)"
     echo "      theme               Install theme"
     echo "      git                 Install Git"
+    echo "      bashrc              Add custom config to ~/.bashrc"
     echo "      all                 Install all of above"
 else
     case $1 in 
@@ -92,6 +97,8 @@ else
             theme;;
         git)
             git;;
+        bashrc)
+            bashrc;;
         all)
             all;;
         *)
