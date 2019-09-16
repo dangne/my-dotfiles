@@ -9,13 +9,13 @@ These are all the personal configuration files that I made to make my tools more
 Display help and all config options:
 
 ```
-bash autoconfig.sh --help
+bash autoconfig.sh
 ```
 
-Config your selected options
+Config your selected option
 
 ```
-bash autoconfig.sh [<option1>] [<option2>] ... 
+bash autoconfig.sh [<option>]
 ```
 
 or config everything with
