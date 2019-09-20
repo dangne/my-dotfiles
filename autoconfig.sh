@@ -19,7 +19,7 @@ typora(){
     wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
     sudo add-apt-repository 'deb https://typora.io/linux ./'
     sudo apt-get update
-    sudo apt-get install typora
+    sudo apt-get install -y typora
 }
 
 unikey(){
@@ -45,7 +45,7 @@ theme(){
     cd -
     firefox https://extensions.gnome.org
     echo "### Click the link text “click here to install browser extension” and follow the pop-ups to install the browser extension"
-    sudo apt install chrome-gnome-shell
+    sudo apt install -y chrome-gnome-shell
     firefox https://extensions.gnome.org/extension/19/user-themes/
     gsettings set org.gnome.desktop.interface gtk-theme Sweet-Dark
     gsettings set org.gnome.desktop.wm.preferences theme Sweet-Dark
