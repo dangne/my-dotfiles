@@ -55,6 +55,10 @@ git(){
     bash ./gitconfig.sh
 }
 
+vim(){
+    bash ./vimconfig.sh
+}
+
 bashrc(){
     cat ./.bashrc >> ~/.bashrc
 }
@@ -97,6 +101,8 @@ else
             theme;;
         git)
             git;;
+        vim)
+            vim;;
         bashrc)
             bashrc;;
         all)

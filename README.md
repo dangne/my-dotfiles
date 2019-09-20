@@ -4,6 +4,17 @@ These are all the personal configuration files that I made to make my tools more
 
 
 
+### First things first
+
+Clone and change directory to this repo
+
+```
+git clone https://github.com/dangne/my-dotfiles.git ~/my-dotfiles
+cd ~/my-dotfiles
+```
+
+
+
 ### How to use autoconfig.sh
 
 Display help and all config options:
