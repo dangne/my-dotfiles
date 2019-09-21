@@ -61,6 +61,7 @@ vim(){
 
 bashrc(){
     cat ./.bashrc >> ~/.bashrc
+    source ~/.bashrc
 }
 
 all(){
