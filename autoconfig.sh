@@ -85,7 +85,7 @@ then
     echo "      unikey              Install Unikey for Vietnamese :)"
     echo "      theme               Install theme"
     echo "      git                 Install Git"
-	echo "		vim					Install Vim"
+    echo "      vim                 Install Vim"
     echo "      bashrc              Add custom config to ~/.bashrc"
     echo "      all                 Install all of above"
 else
