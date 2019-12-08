@@ -64,6 +64,22 @@ bashrc(){
     source ~/.bashrc
 }
 
+ssh(){
+    echo "### Generate new SSH Key"
+    echo "Input your email:"
+    read email
+    ssh-keygen -t rsa -b 4096 -C $email
+
+    echo "### Adding new SSH Key to ssh-agent"
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa
+}
+
+gpg(){
+    echo "Recommend RSA 4096 key"
+    gpg --full-generate-key    
+}
+
 all(){
     google_chrome
     packages
@@ -73,6 +89,8 @@ all(){
     git
     echo "### Applying changes"
     source ~/.bashrc
+    ssh
+    gpg
 }
 
 if [ -z "$1" ]
@@ -88,6 +106,8 @@ then
     echo "      git                 Install Git"
     echo "      vim                 Install Vim"
     echo "      bashrc              Add custom config to ~/.bashrc"
+    echo "      ssh                 Generate new SSH key"
+    echo "      gpg                 Generate new GPG key"
     echo "      all                 Install all of above"
 else
     case $1 in 
@@ -107,6 +127,10 @@ else
             vim;;
         bashrc)
             bashrc;;
+        ssh)
+            ssh;;
+        gpg)
+            gpg;;
         all)
             all;;
         *)
