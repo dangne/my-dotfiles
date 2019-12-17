@@ -60,7 +60,7 @@ vim(){
 }
 
 bashrc(){
-    cat ./.bashrc >> ~/.bashrc
+    echo "source ~/my-dotfiles/.bashrc" >> ~/.bashrc
     source ~/.bashrc
 }
 

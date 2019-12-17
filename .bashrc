@@ -26,3 +26,6 @@ alias cc='clear'
 alias clc='clear'
 alias cls='clear'
 alias clera='clear'
+
+# Shortcut for Jupyter Notebook
+alias note='jupyter notebook'
