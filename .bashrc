@@ -1,6 +1,10 @@
+export PATH="$PATH:~/flutter/bin"
+export PATH="$PATH:/opt/android-studio/bin"
+
+
 ############### SELF-DEFINED ALIASES ###############
 # Set coding space directory
-alias code='cd ~/Dropbox/it/'
+alias code='cd ~/Dropbox/workspace/'
 
 # Competitive programming space
 alias CP='code; cd ./CP'
