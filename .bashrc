@@ -1,5 +1,6 @@
 export PATH="$PATH:~/flutter/bin"
 export PATH="$PATH:/opt/android-studio/bin"
+export PATH="$PATH:~/julia-1.4.0/bin"
 
 
 ############### SELF-DEFINED ALIASES ###############
