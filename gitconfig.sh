@@ -8,6 +8,7 @@ read useremail
 git config --global user.name $username
 git config --global user.email $useremail
 git config --global core.excludesfile ~/.gitignore
+git config --global core.editor vim
 
 echo "### Define global aliases"
 git config --global alias.co checkout
