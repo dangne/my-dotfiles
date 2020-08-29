@@ -23,9 +23,10 @@ typora(){
 }
 
 unikey(){
-    sudo apt-get install -y ibus-unikey
-    google-chrome https://vinasupport.com/huong-dan-cai-bo-go-tieng-viet-ibus-unikey-tren-ubuntu/
+    # Install the new ibus-bamboo
+    sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
     sudo apt-get update
+    sudo apt-get install ibus-bamboo
     ibus restart
 }
 
