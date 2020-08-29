@@ -1,21 +1,20 @@
 #!/bin/bash
 
-google_chrome(){
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo dpkg -i google-chrome-stable_current_amd64.deb
-}
-
 packages(){
-    sudo apt-get install -y vim 
-    sudo apt-get install -y g++
-    sudo apt-get install -y python3 
-    sudo apt-get install -y python3-dev
-    sudo apt-get install -y trash-cli
+    sudo apt-get update
+
+    # Packages for my coding stuffs
     sudo apt-get install -y git
-    sudo apt-get install -y cmake
+    sudo apt-get install -y vim 
+    sudo apt-get install -y build-essential
+    sudo apt-get install -y python3 
+
+    # Utilities
+    sudo apt-get install -y trash-cli
 }
 
 typora(){
+    # Best tool for markdown editor
     wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
     sudo add-apt-repository 'deb https://typora.io/linux ./'
     sudo apt-get update
@@ -28,6 +27,13 @@ unikey(){
     sudo apt-get update
     sudo apt-get install ibus-bamboo
     ibus restart
+}
+
+tmux(){
+    git clone https://github.com/tmux/tmux.git
+    cd tmux
+    sh autogen.sh
+    ./configure && make
 }
 
 theme(){
@@ -53,11 +59,11 @@ theme(){
 }
 
 git(){
-    bash ./gitconfig.sh
+    source ./gitconfig.sh
 }
 
 vim(){
-    bash ./vimconfig.sh
+    source ./vimconfig.sh
 }
 
 bashrc(){
@@ -70,28 +76,6 @@ ssh(){
     echo "Input your email:"
     read email
     ssh-keygen -t rsa -b 4096 -C $email
-
-    echo "### Adding new SSH Key to ssh-agent"
-    eval "$(ssh-agent -s)"
-    ssh-add ~/.ssh/id_rsa
-}
-
-gpg(){
-    echo "Recommend RSA 4096 key"
-    gpg --full-generate-key    
-}
-
-all(){
-    google_chrome
-    packages
-    typora
-    unikey
-    theme
-    git
-    echo "### Applying changes"
-    source ~/.bashrc
-    ssh
-    gpg
 }
 
 if [ -z "$1" ]
@@ -99,41 +83,35 @@ then
     echo "usage: autoconfig.sh [<option>]"
     echo
     echo "Available options:"
-    echo "      chrome              Install Google Chrome"
-    echo "      packages            Install essential packages"
-    echo "      typora              Install Typora for Markdown editing"
-    echo "      unikey              Install Unikey for Vietnamese :)"
-    echo "      theme               Install theme"
+    echo "      bashrc              Add my custom config to ~/.bashrc"
     echo "      git                 Install Git"
+    echo "      packages            Install essential packages"
+    echo "      ssh                 Create new ssh key"
+    echo "      theme               Install theme"
+    echo "      tmux                Install tmux" 
+    echo "      typora              Install Typora for Markdown editing"
+    echo "      unikey              Install ibus-bamboo for Vietnamese input"
     echo "      vim                 Install Vim"
-    echo "      bashrc              Add custom config to ~/.bashrc"
-    echo "      ssh                 Generate new SSH key"
-    echo "      gpg                 Generate new GPG key"
-    echo "      all                 Install all of above"
 else
     case $1 in 
-        chrome)
-            chrome;;
+        bashrc)
+            bashrc;;
+        git)
+            git;;
         packages)
             packages;;
+        ssh)
+            ssh;;
+        theme)
+            theme;;
+        tmux)
+            tmux;;
         typora)
             typora;;
         unikey)
             unikey;;
-        theme)
-            theme;;
-        git)
-            git;;
         vim)
             vim;;
-        bashrc)
-            bashrc;;
-        ssh)
-            ssh;;
-        gpg)
-            gpg;;
-        all)
-            all;;
         *)
             echo "Unknown option";;
     esac
