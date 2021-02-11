@@ -1,6 +1,10 @@
 # My dotfiles 
 
-### Usage
+Customized for Ubuntu 20.04
+
+
+
+## Usage
 
 ```
 usage: setup.sh [options]
