@@ -14,6 +14,7 @@ typora        Install typora
 zsh           Install zsh
 bash          Configure bash
 git           Configure git
+gnome         Configure gnome
 vim           Configure vim
 misc          Install miscellaneous packages
 "
@@ -61,6 +62,7 @@ install_zsh() {
   sudo apt install -y zsh
   sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   echo "source ${THIS_DIR}/dotfiles/.zshrc" >> ~/.zshrc
+  echo "source ${THIS_DIR}/dotfiles/.bashrc" >> ~/.zshrc
 }
 
 config_bash() {
@@ -85,6 +87,12 @@ config_git() {
   git config --global alias.br branch
   git config --global alias.cm commit
   git config --global alias.st status
+}
+
+config_gnome() {
+  cp "${THIS_DIR}/dotfiles/gruvbox-dark.xml" ~/.local/share/gedit/styles/
+  dconf load /org/gnome/terminal/ < "${THIS_DIR}/dotfiles/gnome_terminal_settings_backup.txt"
+  dconf load /org/gnome/gedit/ < "${THIS_DIR}/dotfiles/gnome_gedit_settings_backup.txt"
 }
 
 config_vim() {
@@ -117,6 +125,7 @@ else
       zsh)    install_zsh ;;
       bash)   config_bash ;;
       git)    config_git ;;
+      gnome)  config_gnome ;;
       vim)    config_vim ;;
       *)      echo "Unrecognized option: $1" ;;
     esac

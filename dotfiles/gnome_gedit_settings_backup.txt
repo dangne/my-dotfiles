@@ -1,0 +1,27 @@
+[plugins]
+active-plugins=['time', 'docinfo', 'filebrowser', 'modelines', 'spell']
+
+[plugins/filebrowser]
+root='file:///'
+tree-view=true
+virtual-root='file:///home/dang'
+
+[preferences/editor]
+background-pattern='none'
+display-right-margin=true
+highlight-current-line=false
+insert-spaces=true
+scheme='gruvbox-dark'
+tabs-size=uint32 4
+wrap-last-split-mode='word'
+
+[preferences/ui]
+show-tabs-mode='auto'
+statusbar-visible=true
+
+[state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(934, 700)
+state=87168
