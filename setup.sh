@@ -8,7 +8,6 @@ usage: setup.sh [options]
 
 Available options:
 
-demoooo
 all           Install & configure all
 bamboo        Install ibus-bamboo
 conda         Install miniconda
@@ -110,9 +109,10 @@ config_git() {
 config_gnome() {
   echo "Configuring gnome..."
 
+  mkdir -p ~/.local/share/gedit/styles
   cp "${THIS_DIR}/dotfiles/gruvbox-dark.xml" ~/.local/share/gedit/styles/
-  dconf load /org/gnome/terminal/ < "${THIS_DIR}/dotfiles/gnome_terminal_settings_backup.txt"
   dconf load /org/gnome/gedit/ < "${THIS_DIR}/dotfiles/gnome_gedit_settings_backup.txt"
+  dconf load /org/gnome/terminal/ < "${THIS_DIR}/dotfiles/gnome_terminal_settings_backup.txt"
 }
 
 config_vim() {

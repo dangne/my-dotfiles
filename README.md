@@ -6,7 +6,6 @@ Customized for Ubuntu 20.04
 
 ## Usage
 
-[//]: # "replacer_start"
 ```
 usage: setup.sh [options]
 
@@ -25,7 +24,6 @@ vim           Configure vim
 misc          Install miscellaneous packages
 ```
 
-[//]: # "replacer_end"
 
 E.g. Install and configure tmux, zsh, git and vim.
 
