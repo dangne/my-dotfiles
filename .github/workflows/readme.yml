@@ -1,0 +1,28 @@
+name: Update README.md
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - "README.md"
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Prepare source file
+        run: |
+          echo "\`\`\`$(./setup.sh help)\\n\`\`\`\\n" > help.txt
+      - uses: unfor19/replacer-action@v1.0.3
+        name: Update README.md file
+        with:
+          src-file-path: "help.txt"
+          dst-file-path: "README.md"
+          start-value: "[//]: # (replacer_start)"
+          end-value: "[//]: # (replacer_end)"
+          git-user-name: "dangne"
+          git-user-email: "dang.nguyen.bkit@gmail.com"
+          git-commit-msg: "Update README.md"
+          git-skip-commit: false
+          git-skip-push: false
+          create-backup: true

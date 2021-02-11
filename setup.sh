@@ -8,6 +8,7 @@ usage: setup.sh [options]
 
 Available options:
 
+demo
 all           Install & configure all
 bamboo        Install ibus-bamboo
 conda         Install miniconda
