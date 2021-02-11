@@ -8,7 +8,9 @@ usage: setup.sh [options]
 
 Available options:
 
+all           Install & configure all
 bamboo        Install ibus-bamboo
+conda         Install miniconda
 tmux          Install tmux
 typora        Install typora 
 zsh           Install zsh
@@ -18,6 +20,19 @@ gnome         Configure gnome
 vim           Configure vim
 misc          Install miscellaneous packages
 "
+
+install_all() {
+  install_bamboo
+  install_conda
+  install_tmux
+  install_typora
+  install_zsh
+  config_bash
+  config_git
+  config_gnome
+  config_vim
+  install_misc
+}
 
 install_bamboo() {
   # source: https://github.com/BambooEngine/ibus-bamboo
@@ -29,10 +44,12 @@ install_bamboo() {
   ibus restart
 }
 
-install_misc() {
-  echo "Installing miscellaneous packages..."
+install_conda() {
+  echo "Installing Miniconda... "
 
-  sudo apt-get install trash-cli
+  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -P ~
+  sh ~/Miniconda3-latest-Linux-x86_64.sh 
+  rm ~/Miniconda3-latest-Linux-x86_64.sh 
 }
 
 install_tmux() {
@@ -90,6 +107,8 @@ config_git() {
 }
 
 config_gnome() {
+  echo "Configuring gnome..."
+
   cp "${THIS_DIR}/dotfiles/gruvbox-dark.xml" ~/.local/share/gedit/styles/
   dconf load /org/gnome/terminal/ < "${THIS_DIR}/dotfiles/gnome_terminal_settings_backup.txt"
   dconf load /org/gnome/gedit/ < "${THIS_DIR}/dotfiles/gnome_gedit_settings_backup.txt"
@@ -108,6 +127,12 @@ config_vim() {
   python3 install.py
 }
 
+install_misc() {
+  echo "Installing miscellaneous packages..."
+
+  sudo apt-get install trash-cli
+}
+
 [[ $# -eq 0 ]] && h=true || h=false
 for opt in $@; do
   if [[ "$opt" == "help" ]] ; then h=true ; break ; fi
@@ -118,8 +143,9 @@ if [[ "$h" = true ]] ; then
 else
   while [[ $# -gt 0 ]] ; do
     case "$1" in 
+      all)    install_all ;;
       bamboo) install_bamboo ;;
-      misc)   install_misc ;;
+      conda)  install_conda ;;
       tmux)   install_tmux ;;
       typora) install_typora ;;
       zsh)    install_zsh ;;
@@ -127,6 +153,7 @@ else
       git)    config_git ;;
       gnome)  config_gnome ;;
       vim)    config_vim ;;
+      misc)   install_misc ;;
       *)      echo "Unrecognized option: $1" ;;
     esac
     shift
