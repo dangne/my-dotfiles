@@ -18,6 +18,7 @@ bash          Configure bash
 git           Configure git
 gnome         Configure gnome
 vim           Configure vim
+vm            Light configuration for VM
 misc          Install miscellaneous packages
 "
 
@@ -128,10 +129,22 @@ config_vim() {
   python3 install.py
 }
 
+config_vm() {
+  config_git
+  echo "Copying .vimrc..."
+  cp "${THIS_DIR}/dotfiles/.vimrc_light" ~/.vimrc
+  echo "Adding custom .bashrc..."
+  echo "" >> ~/.bashrc
+  cat "${THIS_DIR}/dotfiles/.bashrc" >> ~/.bashrc
+  source ~/.bashrc
+}
+
 install_misc() {
   echo "Installing miscellaneous packages..."
 
   sudo apt-get install trash-cli
+  echo "alias rm=\"trash\"" >> ~/.bashrc
+  source ~/.bashrc
 }
 
 [[ $# -eq 0 ]] && h=true || h=false
@@ -154,6 +167,7 @@ else
       git)    config_git ;;
       gnome)  config_gnome ;;
       vim)    config_vim ;;
+      vm)     config_vm ;;
       misc)   install_misc ;;
       *)      echo "Unrecognized option: $1" ;;
     esac
