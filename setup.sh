@@ -9,6 +9,7 @@ usage: setup.sh [options]
 Available options:
 
 all           Install & configure all
+chrome        Install Google Chrome
 bamboo        Install ibus-bamboo
 conda         Install miniconda
 tmux          Install tmux
@@ -23,7 +24,11 @@ misc          Install miscellaneous packages
 "
 
 install_all() {
+  sudo apt update
+  sudo apt upgrade
+  
   install_bamboo
+  install_chrome
   install_conda
   install_tmux
   install_typora
@@ -43,6 +48,14 @@ install_bamboo() {
   sudo apt-get update
   sudo apt-get install -y ibus-bamboo
   ibus restart
+}
+
+install_chrome() {
+  # source: https://linuxhint.com/ubuntu_20-04_google_chrome_installation_guide/
+  echo "Installing Google Chrome... "
+  
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  sudo dpkg -i google-chrome-stable_current_amd64.deb
 }
 
 install_conda() {
@@ -159,6 +172,7 @@ else
     case "$1" in 
       all)    install_all ;;
       bamboo) install_bamboo ;;
+      chrome) install_chrome ;;
       conda)  install_conda ;;
       tmux)   install_tmux ;;
       typora) install_typora ;;
