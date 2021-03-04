@@ -144,7 +144,7 @@ config_vim() {
 
 config_vm() {
   config_git
-  echo "Copying .vimrc..."
+  echo "Copying .vimrc_light to ~/.vimrc..."
   cp "${THIS_DIR}/dotfiles/.vimrc_light" ~/.vimrc
   echo "Adding custom .bashrc..."
   echo "" >> ~/.bashrc
