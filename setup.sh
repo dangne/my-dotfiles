@@ -24,8 +24,8 @@ misc          Install miscellaneous packages
 "
 
 install_all() {
-  sudo apt update
-  sudo apt upgrade
+  apt update
+  apt upgrade
   
   install_bamboo
   install_chrome
@@ -44,9 +44,9 @@ install_bamboo() {
   # source: https://github.com/BambooEngine/ibus-bamboo
   echo "Installing ibus-bamboo... "
 
-  sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
-  sudo apt-get update
-  sudo apt-get install -y ibus-bamboo
+  add-apt-repository ppa:bamboo-engine/ibus-bamboo
+  apt-get update
+  apt-get install -y ibus-bamboo
   ibus restart
 }
 
@@ -55,7 +55,7 @@ install_chrome() {
   echo "Installing Google Chrome... "
   
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  sudo dpkg -i google-chrome-stable_current_amd64.deb
+  dpkg -i google-chrome-stable_current_amd64.deb
 }
 
 install_conda() {
@@ -70,27 +70,27 @@ install_tmux() {
   # source: https://github.com/tmux/tmux
   echo "Installing tmux..."
 
-  sudo apt install -y tmux
+  apt install -y tmux
 }
 
 install_typora() {
   # source: https://typora.io/#linux
   echo "Installing typora... "
 
-  wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
+  wget -qO - https://typora.io/linux/public-key.asc | apt-key add -
 
   # add Typora's repository
-  sudo add-apt-repository 'deb https://typora.io/linux ./'
-  sudo apt-get update
+  add-apt-repository 'deb https://typora.io/linux ./'
+  apt-get update
 
   # install typora
-  sudo apt-get install -y typora
+  apt-get install -y typora
 }
 
 install_zsh() {
   echo "Installing zsh..."
 
-  sudo apt install -y zsh
+  apt install -y zsh
   sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   echo "source ${THIS_DIR}/dotfiles/.zshrc" >> ~/.zshrc
   echo "source ${THIS_DIR}/dotfiles/.bashrc" >> ~/.zshrc
@@ -106,7 +106,7 @@ config_bash() {
 config_git() {
   echo "Configuring git..."
 
-  sudo apt-get install -y git
+  apt-get install -y git
   read -p "Please enter your username:" username
   read -p "Please enter your email:" email
   git config --global user.name "${username}"
@@ -132,12 +132,12 @@ config_gnome() {
 config_vim() {
   echo "Configuring vim..."
 
-  sudo apt-get install -y vim 
+  apt-get install -y vim 
   cp "${THIS_DIR}/dotfiles/.vimrc" ~
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
   vim +PluginInstall +qall
-  sudo apt-get install -y fonts-powerline 
-  sudo apt install -y build-essential cmake python3-dev
+  apt-get install -y fonts-powerline 
+  apt install -y build-essential cmake python3-dev
   cd ~/.vim/bundle/YouCompleteMe
   python3 install.py
 }
@@ -155,7 +155,7 @@ config_vm() {
 install_misc() {
   echo "Installing miscellaneous packages..."
 
-  sudo apt-get install trash-cli
+  apt-get install trash-cli
   echo "alias rm=\"trash\"" >> ~/.bashrc
   source ~/.bashrc
 }
