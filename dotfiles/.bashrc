@@ -1,7 +1,7 @@
 # Replace the default 'rm' with trash-cli's 'rm'.
 alias rm=trash
-alias odir='nautilus'
-alias cpl='g++ -g -o run'
+alias open='xdg-open'
+alias c='clear'
 alias cc='clear'
 alias clc='clear'
 alias cls='clear'
