@@ -158,6 +158,8 @@ install_misc() {
   apt-get install trash-cli
   echo "alias rm=\"trash\"" >> ~/.bashrc
   source ~/.bashrc
+
+  apt install xsel
 }
 
 [[ $# -eq 0 ]] && h=true || h=false
