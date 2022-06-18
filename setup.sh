@@ -100,6 +100,7 @@ config_bash() {
   echo "Configuring bash..."
 
   echo "source ${THIS_DIR}/dotfiles/.bashrc" >> ~/.bashrc
+  echo "source ${THIS_DIR}/dotfiles/.bash_aliases" >> ~/.bash_aliases
   source ~/.bashrc
     
   if [ ! -f ~/.bash_aliases ]
@@ -108,6 +109,7 @@ config_bash() {
     touch ~/.bash_aliases
   fi
   cat ${THIS_DIR}/dotfiles/.bash_aliases >> ~/.bash_aliases
+
   source ~/.bash_aliases
 }
 
@@ -176,11 +178,13 @@ install_misc() {
   echo "Installing miscellaneous packages..."
 
   apt-get install trash-cli
+
   if [ ! -f ~/.bash_aliases ]
   then
     echo Creating ~/.bash_aliases...
     touch ~/.bash_aliases
   fi
+
   echo "alias rm=\"trash\"" >> ~/.bash_aliases
   source ~/.bash_aliases
 
