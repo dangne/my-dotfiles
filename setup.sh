@@ -100,7 +100,9 @@ config_bash() {
   echo "Configuring bash..."
 
   echo "source ${THIS_DIR}/dotfiles/.bashrc" >> ~/.bashrc
+  echo "source ${THIS_DIR}/dotfiles/.bash_aliases" >> ~/.bash_aliases
   source ~/.bashrc
+  source ~/.bash_aliases
 }
 
 config_git() {
@@ -146,18 +148,24 @@ config_vm() {
   config_git
   echo "Copying .vimrc_light to ~/.vimrc..."
   cp "${THIS_DIR}/dotfiles/.vimrc_light" ~/.vimrc
+
   echo "Adding custom .bashrc..."
   echo "" >> ~/.bashrc
   cat "${THIS_DIR}/dotfiles/.bashrc" >> ~/.bashrc
   source ~/.bashrc
+
+  echo "Adding custom .bash_aliases..."
+  echo "" >> ~/.bash_aliases
+  cat "${THIS_DIR}/dotfiles/.bash_aliases" >> ~/.bash_aliases
+  source ~/.bash_aliases
 }
 
 install_misc() {
   echo "Installing miscellaneous packages..."
 
   apt-get install trash-cli
-  echo "alias rm=\"trash\"" >> ~/.bashrc
-  source ~/.bashrc
+  echo "alias rm=\"trash\"" >> ~/.bash_aliases
+  source ~/.bash_aliases
 
   apt install xsel
 }
