@@ -47,6 +47,7 @@ call vundle#begin()
 call vundle#end()
 filetype plugin indent on
 
+let g:airline_powerline_fonts = 1
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
